@@ -1,0 +1,21 @@
+{
+	"manifest_version": 2,
+
+	"name": "Quotab",
+	"description": "This extension shows you a quote on the new tab page",
+	"version": "1.0",
+
+	"background": {
+		"scripts": ["quotab.js"]
+	},
+
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_title": "New quotes every time you open a new tab"
+	},
+
+	"permissions": [
+		//or maybe I want the tabs permission instead?
+		"activeTab",
+	]
+}
