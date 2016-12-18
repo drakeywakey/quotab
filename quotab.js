@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
+	getNewQuote();
+	getWordOfTheDay();
+});
+
+function getNewQuote() {
 	var author = document.getElementById('author');
 	var quote = document.getElementById('quote');
 	var request = new XMLHttpRequest();
@@ -21,4 +26,22 @@ document.addEventListener('DOMContentLoaded', function () {
 	};
 
 	request.send();
-});
+}
+
+function getWordOfTheDay() {
+	var request = new XMLHttpRequest();
+	var response;
+	var url = 'http://api.wordnik.com/v4/words.json/wordOfTheDay?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5';
+	var word = document.getElementById('word-of-day');
+	var wordDef = document.getElementById('word-def');
+
+	request.open('GET', url);
+
+	request.onload = function () {
+		response = JSON.parse(request.response);
+		word.textContent = response.word;
+		wordDef.textContent = response.definitions[0].text;
+	};
+
+	request.send();
+}
