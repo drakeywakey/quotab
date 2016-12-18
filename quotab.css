@@ -2,3 +2,25 @@
 	margin: 100px 500px;
 	text-align: center;
 }
+
+#author {
+	color: #ed217c;
+}
+
+.slash {
+	border: 120px solid;
+	bottom: 0;
+	position: absolute;
+}
+
+#left-slash {
+	border-color: #1b998b;
+	border-right-color: transparent;
+	left: 0;
+}
+
+#right-slash {
+	border-color: #2d3047;
+	border-left-color: transparent;
+	right: 0;
+}

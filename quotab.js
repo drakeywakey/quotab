@@ -8,9 +8,14 @@ document.addEventListener('DOMContentLoaded', function () {
 	request.open('GET', url);
 
 	request.onload = function () {
-		response = JSON.parse(request.response);
-		quote.textContent = response.quoteText;
-		author.textContent = response.quoteAuthor;
+		try {
+			response = JSON.parse(request.response);
+			quote.textContent = response.quoteText;
+			author.textContent = response.quoteAuthor ? '--' + response.quoteAuthor : '';
+		}
+		catch (ex) {
+			quote.textContent = 'Sorry, looks like I couldn\'t retrieve a new quote';
+		}
 	};
 
 	request.send();
