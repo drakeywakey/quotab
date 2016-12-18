@@ -3,8 +3,15 @@
 	text-align: center;
 }
 
+#quote {
+	font-family: 'Mirza';
+	font-size: 22px;
+}
+
 #author {
 	color: #ed217c;
+	font-family: 'Lato';
+	font-size: 16px;
 }
 
 .slash {
