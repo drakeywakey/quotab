@@ -9,9 +9,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	request.onload = function () {
 		try {
-			response = JSON.parse(request.response);
-			quote.textContent = response.quoteText;
-			author.textContent = response.quoteAuthor ? '--' + response.quoteAuthor : '';
+			response = request.response;
+			responseJson = JSON.parse(response);
+			quote.textContent = responseJson.quoteText;
+			author.textContent = responseJson.quoteAuthor ? '--' + responseJson.quoteAuthor : '';
 		}
 		catch (ex) {
 			quote.textContent = 'Sorry, looks like I couldn\'t retrieve a new quote';
