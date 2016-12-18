@@ -9,10 +9,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	request.onload = function () {
 		try {
-			response = request.response;
-			responseJson = JSON.parse(response);
-			quote.textContent = responseJson.quoteText;
-			author.textContent = responseJson.quoteAuthor ? '--' + responseJson.quoteAuthor : '';
+			// remove all \ from the string -- I can't imagine the quote will need the \,
+			// and their choice of \' messes with the JSON.parse.
+			response = JSON.parse(request.response.replace(/[\\]/g, ''));
+			quote.textContent = response.quoteText;
+			author.textContent = response.quoteAuthor ? '--' + response.quoteAuthor : '';
 		}
 		catch (ex) {
 			quote.textContent = 'Sorry, looks like I couldn\'t retrieve a new quote';
