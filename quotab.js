@@ -35,29 +35,31 @@ function getWordOfTheDay() {
 	// this isn't my api key, but they just left it hanging around on their website so...
 	// I should only be calling this once a day anyway.
 	var url = 'http://api.wordnik.com/v4/words.json/wordOfTheDay?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5';
-	var word = document.getElementById('word-of-day');
-	var wordDef = document.getElementById('word-def');
+	var word;
+	var wordDef;
+	var wordElement = document.getElementById('word-of-day');
+	var wordDefElement = document.getElementById('word-def');
 
 	// if we've already pulled today's word of the day, it should be in localStorage -- no need to make the api call
 	if (lastRequestTime && (new Date(lastRequestTime).getDay() === new Date().getDay())) {
-		word.textContent = localStorage.getItem('wordOfDay');
-		wordDef.textContent = localStorage.getItem('wordDef');
+		wordElement.textContent = localStorage.getItem('wordOfDay');
+		wordDefElement.textContent = localStorage.getItem('wordDef');
 	}
 	else {
 		request.open('GET', url);
 
 		request.onload = function () {
 			response = JSON.parse(request.response);
+			word = response.word;
+			wordDef = response.definitions[0].text;
 
-			// Should I only be doing this on a successful response?
 			// Should I just keep a single object in localStorage for all this junk?
-			// plus I'm reusing response.word and the definition -- clean up to pull those into vars
 			localStorage.setItem('lastWordOfDayRequest', new Date());
-			localStorage.setItem('wordOfDay', response.word);
-			localStorage.setItem('wordDef', response.definitions[0].text);
+			localStorage.setItem('wordOfDay', word);
+			localStorage.setItem('wordDef', wordDef);
 
-			word.textContent = response.word;
-			wordDef.textContent = response.definitions[0].text;
+			word.textContent = word;
+			wordDef.textContent = wordDef;
 		};
 
 		request.send();
