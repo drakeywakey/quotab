@@ -3,23 +3,27 @@
 	text-align: center;
 }
 
-#quote {
+#quote, #word-def {
 	font-family: 'Mirza';
 	font-size: 22px;
 }
 
-#author {
+#author, #word-of-day {
 	color: #ed217c;
 	font-family: 'Lato';
 	font-size: 16px;
 }
 
 #word-container {
-	/* I'm sure I can find a better way to position this!*/
+	/* I'm sure I can find a better way to position this! */
 	bottom: 11%;
 	left: 41%;
 	position: absolute;
 	text-align: center;
+}
+
+#word-def {
+	font-size: 14px;
 }
 
 .slash {
