@@ -15,6 +15,10 @@
 }
 
 #word-container {
+	/* I'm sure I can find a better way to position this!*/
+	bottom: 11%;
+	left: 41%;
+	position: absolute;
 	text-align: center;
 }
 
