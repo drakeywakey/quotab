@@ -1,6 +1,18 @@
-#quote-container {
-	margin: 100px 500px;
+/* Is this a bad idea? Seems like a bad idea */
+html {
+	height: 97%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: space-between;
 	text-align: center;
+}
+
+#quote-container {
+	margin-top: 100px;
 }
 
 #quote, #word-def {
@@ -15,11 +27,13 @@
 }
 
 #word-container {
-	/* I'm sure I can find a better way to position this! */
-	bottom: 11%;
-	left: 41%;
-	position: absolute;
-	text-align: center;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 75px;
+}
+
+#word-def, #word-of-day {
+	margin: 0.5em;
 }
 
 #word-def {
