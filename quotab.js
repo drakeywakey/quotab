@@ -52,8 +52,8 @@ function getWordOfTheDay() {
 			localStorage.setItem('wordOfDay', word);
 			localStorage.setItem('wordDef', wordDef);
 
-			word.textContent = word;
-			wordDef.textContent = wordDef;
+			wordElement.textContent = word;
+			wordDefElement.textContent = wordDef;
 		};
 
 		makeRequest(url, callback);
